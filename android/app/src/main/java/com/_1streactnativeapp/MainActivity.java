@@ -1,4 +1,4 @@
-package com._1streactnativeapp;
+package com.firstReactNativeApp;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "_1stReactNativeApp";
+    return "firstReactNativeApp";
   }
 }
