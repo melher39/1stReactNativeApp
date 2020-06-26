@@ -71,6 +71,7 @@ const App = () => {
   const handlePress = () => {
     setCounter(counter + 1);
   };
+  const [greeting, setGreeting] = useState("What's good son");
 
   return (
     <>
@@ -80,17 +81,18 @@ const App = () => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
           <View style={styles.body}>
-            <Text
+            <Greeting greeting="greeting1" />
+            <Greeting greeting={greeting} />
+            {/* <Text
               style={styles.sectionTitle}>
               {counter}
-            </Text>
+            </Text> */}
             <Button
+              onPress={() => setGreeting("Let's get it!")}
+              title="Change greeting"
+            />
+            {/* <Button
               onPress={handlePress}
               title="Touch Me"
             />
@@ -98,13 +100,15 @@ const App = () => {
               onPress={() => setCounter(0)}
               title="Reset"
               color="red"
-            />
+            /> */}
           </View>
         </ScrollView>
       </SafeAreaView>
     </>
   );
 };
+
+const Greeting = ({ greeting }) => <Text>{greeting}</Text>
 
 const styles = StyleSheet.create({
   scrollView: {
