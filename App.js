@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -6,6 +6,7 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
 } from 'react-native';
 
 import {
@@ -66,6 +67,11 @@ import {
 // };
 
 const App = () => {
+  const [counter, setCounter] = useState(0);
+  const handlePress = () => {
+    setCounter(counter + 1);
+  };
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -80,7 +86,19 @@ const App = () => {
             </View>
           )}
           <View style={styles.body}>
-            <Text style={styles.sectionTitle}>Hello world</Text>
+            <Text
+              style={styles.sectionTitle}>
+              {counter}
+            </Text>
+            <Button
+              onPress={handlePress}
+              title="Touch Me"
+            />
+            <Button
+              onPress={() => setCounter(0)}
+              title="Reset"
+              color="red"
+            />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -90,18 +108,18 @@ const App = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: Colors.lighter
   },
   engine: {
     position: "absolute",
-    right: 0,
+    right: 0
   },
   body: {
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.white
   },
   sectionContainer: {
     marginTop: 32,
-    paddingHorizontal: 24,
+    paddingHorizontal: 24
   },
   sectionTitle: {
     fontSize: 24,
@@ -113,10 +131,10 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 18,
     fontWeight: "400",
-    color: Colors.dark,
+    color: Colors.dark
   },
   highlight: {
-    fontWeight: "700",
+    fontWeight: "700"
   },
   footer: {
     color: Colors.dark,
@@ -124,8 +142,8 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     padding: 4,
     paddingRight: 12,
-    textAlign: "right",
-  },
+    textAlign: "right"
+  }
 });
 
 export default App;
