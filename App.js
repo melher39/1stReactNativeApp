@@ -1,8 +1,11 @@
 import React from "react";
 import {
   StyleSheet,
-  View
+  View,
+  TouchableHighlight,
+  Text
 } from "react-native";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 // import {
 //   Colors
@@ -10,11 +13,24 @@ import {
 
 
 const App = () => {
+  const onPress = () => {
+    alert("Button Pressed");
+  };
+
   return (
     <View style={styles.container}>
-      <View style={styles.box}></View>
-      <View style={styles.box}></View>
-      <View style={styles.box}></View>
+      <TouchableHighlight
+        onPress={onPress}
+        style={styles.button}
+        underlayColor="rgba(50, 183, 255, .8)"
+      >
+        <View style={styles.textContainer}>
+          <Icon name="home" size={20} color="white" />
+          <Text style={styles.text}>
+            HOME
+        </Text>
+        </View>
+      </TouchableHighlight>
     </View>
   );
 };
@@ -22,15 +38,23 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // flexDirection: "row"
-    justifyContent: "space-between",
-    alignItems: "center"
+    justifyContent: "center"
   },
-  box: {
-    height: 100,
-    width: 100,
-    backgroundColor: "red",
+  button: {
+    backgroundColor: "rgba(50, 183, 255, 1)",
+    borderRadius: 30,
+    padding: 17,
     margin: 10
+  },
+  textContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row"
+  },
+  text: {
+    color: "white",
+    fontSize: 18,
+    marginLeft: 15
   }
 });
 
