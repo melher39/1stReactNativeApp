@@ -5,32 +5,23 @@ import {
   TouchableHighlight,
   Text
 } from "react-native";
-import Icon from "react-native-vector-icons/MaterialIcons";
-
-// import {
-//   Colors
-// } from "react-native/Libraries/NewAppScreen";
-
 
 const App = () => {
-  const onPress = () => {
-    alert("Button Pressed");
+  const renderItems = () => {
+    return people.map(renderItem);
   };
+  const renderItem = (item, index) => {
+    return <Text key={index} style={styles.text}>{item.name} is {item.age} years old</Text>
+  };
+  const people = [
+    { name: "Melvin", age: 29 },
+    { name: "Jessica", age: 25 },
+    { name: "Jocelyn", age: 17 },
+  ];
 
   return (
     <View style={styles.container}>
-      <TouchableHighlight
-        onPress={onPress}
-        style={styles.button}
-        underlayColor="rgba(50, 183, 255, .8)"
-      >
-        <View style={styles.textContainer}>
-          <Icon name="home" size={20} color="white" />
-          <Text style={styles.text}>
-            HOME
-        </Text>
-        </View>
-      </TouchableHighlight>
+      {renderItems()}
     </View>
   );
 };
@@ -40,21 +31,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center"
   },
-  button: {
-    backgroundColor: "rgba(50, 183, 255, 1)",
-    borderRadius: 30,
-    padding: 17,
-    margin: 10
-  },
-  textContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row"
-  },
   text: {
-    color: "white",
-    fontSize: 18,
-    marginLeft: 15
+    fontSize: 22
   }
 });
 
