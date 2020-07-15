@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "firstReactNativeApp-tvOS.app"
-               BlueprintName = "firstReactNativeApp-tvOS"
-               ReferencedContainer = "container:firstReactNativeApp.xcodeproj">
+               BuildableName = "first_react_native_app-tvOS.app"
+               BlueprintName = "first_react_native_app-tvOS"
+               ReferencedContainer = "container:first_react_native_app.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "firstReactNativeApp-tvOSTests.xctest"
-               BlueprintName = "firstReactNativeApp-tvOSTests"
-               ReferencedContainer = "container:firstReactNativeApp.xcodeproj">
+               BuildableName = "first_react_native_app-tvOSTests.xctest"
+               BlueprintName = "first_react_native_app-tvOSTests"
+               ReferencedContainer = "container:first_react_native_app.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "firstReactNativeApp-tvOS.app"
-            BlueprintName = "firstReactNativeApp-tvOS"
-            ReferencedContainer = "container:firstReactNativeApp.xcodeproj">
+            BuildableName = "first_react_native_app-tvOS.app"
+            BlueprintName = "first_react_native_app-tvOS"
+            ReferencedContainer = "container:first_react_native_app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "firstReactNativeApp-tvOS.app"
-            BlueprintName = "firstReactNativeApp-tvOS"
-            ReferencedContainer = "container:firstReactNativeApp.xcodeproj">
+            BuildableName = "first_react_native_app-tvOS.app"
+            BlueprintName = "first_react_native_app-tvOS"
+            ReferencedContainer = "container:first_react_native_app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
