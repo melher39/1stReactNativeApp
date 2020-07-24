@@ -5,47 +5,28 @@ import {
   Text,
   TextInput,
   TouchableHighlight,
-  Button
+  Button,
+  Alert
 } from "react-native";
 
 const App = () => {
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
-  const [input, setInput] = useState({ username: "", password: "", formData: "" });
-  const onChangeText = (key, val) => {
-    setInput(input => ({ ...input, [key]: val }));
-  };
-
-  const submit = () => {
-    const userData = {
-      username: input.username,
-      password: input.password,
-      signedIn: true
-    };
-    setInput(input => ({ ...input, formData: JSON.stringify(userData) }));
+  const alert = () => {
+    Alert.alert(
+      "Alert Title",
+      "My Alert Msg",
+      [
+        { text: "Ask me later", onPress: () => console.log("Ask me later pressed") },
+        { text: "Cancel", onPress: () => console.log("Cancel Pressed"), style: "cancel" },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
   };
 
   return (
     <View style={styles.container}>
       <Text>Form Demo</Text>
-      <TextInput
-        placeholder="Username"
-        autoCapitalize="none"
-        autoCorrect={false}
-        onChangeText={val => onChangeText("username", val)}
-        style={styles.input}
-      />
-      <TextInput
-        placeholder="Password"
-        autoCapitalize="none"
-        autoCorrect={false}
-        onChangeText={val => onChangeText("password", val)}
-        style={styles.input}
-        secureTextEntry
-      />
-      <Button onPress={submit} title="Submit" />
-      <Text>Input State: {input.username} and {input.password} and {input.formData}</Text>
-      <Text>state formData: {input.formData}</Text>
+      <Button onPress={alert} title="Alert" />
     </View>
   );
 };
