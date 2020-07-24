@@ -8,42 +8,52 @@ import {
 } from "react-native";
 
 const App = () => {
-  const animatedValue = new Animated.Value(0);
+  const animatedValue1 = new Animated.Value(0);
+  const animatedValue2 = new Animated.Value(0);
+  const animatedValue3 = new Animated.Value(0);
   const animate = () => {
-    Animated.timing(
-      // 1. animated property
-      // 2. config
-      animatedValue, {
-      toValue: 1,
-      duration: 1500,
-      useNativeDriver: false
-    }
-    ).start();
-  }
-  const margin = animatedValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 200]
-  });
-  const backgroundColor = animatedValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: ["red", "blue"]
-  });
-  const rotation = animatedValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: ["0deg", "360deg"]
-  });
+    animatedValue1.setValue(0);
+    animatedValue2.setValue(0);
+    animatedValue3.setValue(0);
+    const createAnimation = (value, toValue, duration) => Animated.timing(
+      value,
+      {
+        toValue,
+        duration,
+        useNativeDriver: false
+      }
+    );
+    Animated.parallel([
+      createAnimation(animatedValue1, 100, 1000),
+      createAnimation(animatedValue2, 700, 1500),
+      createAnimation(animatedValue3, 350, 2000)
+    ]).start(() => {
+      Animated.parallel([
+        createAnimation(animatedValue1, 0, 1000),
+        createAnimation(animatedValue2, 0, 1500),
+        createAnimation(animatedValue3, 0, 2000)
+      ]).start()
+    });
+  };
+
   return (
     <View style={styles.container}>
       <Text>Animations Demo</Text>
       <Button onPress={animate} title="Animate" />
       <Animated.View
         style={{
-          height: 150, width: 150, backgroundColor, marginTop: margin, marginLeft: margin,
-          transform: [{
-            rotate: rotation
-          }]
+          height: 140, width: 140, backgroundColor: "red", marginTop: animatedValue1
         }}
-
+      />
+      <Animated.View
+        style={{
+          height: 140, width: 140, backgroundColor: "green", marginLeft: animatedValue2
+        }}
+      />
+      <Animated.View
+        style={{
+          height: 140, width: 140, backgroundColor: "blue", marginTop: animatedValue3
+        }}
       />
     </View>
   );
